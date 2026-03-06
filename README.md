@@ -69,3 +69,27 @@ object Program
         gives 0;
     }
 }
+```
+
+## ⚙️ Local Setup & Execution
+
+### Prerequisites
+1. **.NET 9 SDK** installed.
+2. **Java Runtime (JRE/JDK)** installed and on PATH (Required by ANTLR4 build tasks).
+3. **LLVM/Clang** installed and on PATH (Required for final `.exe` compilation).
+
+### Build and Run
+
+```bash
+# Clone the repository
+git clone [https://github.com/SebastianTavares/CustomLanguage-Compiler.git](https://github.com/SebastianTavares/CustomLanguage-Compiler.git)
+cd CustomLanguage-Compiler
+
+# Restore packages and build the ANTLR generated code
+dotnet build antrl4CS/antrl4CS.csproj
+
+# Run the compiler on a specific file
+dotnet run --project antrl4CS/antrl4CS.csproj -- antrl4CS/testCorrecto.red
+```
+
+*Upon execution, the compiler parses the source, generates `output.ll`, invokes Clang, and immediately runs the resulting `programa.exe`.*
